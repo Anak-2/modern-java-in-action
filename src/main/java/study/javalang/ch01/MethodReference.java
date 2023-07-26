@@ -5,7 +5,6 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ch01.Apple.AppleColor.GREEN;
 
 public class MethodReference {
     public void main(){
@@ -22,8 +21,8 @@ public class MethodReference {
     }
 
 
-//    사과들 중 초록색 사과를 고르는 함수
-    public List<Apple> getGreenApples(List<Apple> appleList){
+//    사과들 중 초록색 사과를 고르는 필터 함수 (일반 for each)
+    public List<Apple> getGreenApplesV1(List<Apple> appleList){
         List<Apple> greenApples = new ArrayList<>();
 
         for(Apple apple : appleList){
@@ -35,5 +34,16 @@ public class MethodReference {
         return greenApples;
     }
 
+//  스트림을 사용한 사과 필터 함수
+    public interface Predicate<T>{
+        boolean test(T t);
+    }
+    public List<Apple> getGreenApplesV2(List<Apple> appleList, Predicate<Apple> predicate){
+        List<Apple> greenApples = new ArrayList<>();
+        for(Apple apple : appleList){
+            if(predicate.test(apple)) greenApples.add(apple);
+        }
+        return greenApples;
+    }
 
 }
