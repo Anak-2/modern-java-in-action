@@ -17,4 +17,16 @@ public class AppleTest {
         //then
         appleFormatter.printAppleInfo( printAppleInfo, apple);
     }
+
+    @DisplayName("Print Apple 람다 구현 테스트")
+    @Test
+    void printApplyByLambda(){
+        //given
+        Apple apple = Apple.createApple(Apple.AppleColor.GREEN, 160);
+        AppleFormatter appleFormatter = new AppleFormatter();
+        //then
+        appleFormatter.printAppleInfo((Apple a) -> {
+            System.out.println("Apple Color: "+a.getColor());
+        }, apple);
+    }
 }
