@@ -38,7 +38,7 @@ public class MethodReference {
     public interface Predicate<T>{
         boolean test(T t);
     }
-    public List<Apple> getGreenApplesV2(List<Apple> appleList, Predicate<Apple> predicate){
+    public List<Apple> getFilteredApples(List<Apple> appleList, Predicate<Apple> predicate){
         List<Apple> greenApples = new ArrayList<>();
         for(Apple apple : appleList){
             if(predicate.test(apple)) greenApples.add(apple);
