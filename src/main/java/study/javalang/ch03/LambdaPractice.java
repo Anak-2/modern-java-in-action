@@ -8,12 +8,13 @@ import java.util.function.Function;
 
 public class LambdaPractice {
 
-        FunctionalInterface functionalInterface = (s) -> System.out.println(s);
-        FunctionalInterface methodReference = System.out::println;
+        FunctionalInterface functionalInterface = (s) -> {
+            System.out.println(s);
+            return s;
+        };
 
     void printSentence(String sentence){
         functionalInterface.printString(sentence);
-        methodReference.printString(sentence);
     }
 
     // Consumer Example
