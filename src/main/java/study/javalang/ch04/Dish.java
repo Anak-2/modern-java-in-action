@@ -39,6 +39,7 @@ public class Dish {
         OTHER
     }
 
+//    print object
     @Override
     public String toString() {
         return name;

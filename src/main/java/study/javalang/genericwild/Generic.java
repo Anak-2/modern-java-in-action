@@ -11,8 +11,8 @@ public class Generic {
         g.printGeneric(new MyChild());
         g.printGeneric(new MyParent());
 //        g.printGeneric(new MyGrandParent()); --> MyParent 로 상한선 설정했으므로 오류
-        printWild(Arrays.asList(new MyChild()));
-        printWild(Arrays.asList(new MyParent()));
+        g.printWild(Arrays.asList(new MyChild()));
+        g.printWild(Arrays.asList(new MyParent()));
 //        printWild(Arrays.asList(new MyGrandParent())); --> MyParent 로 상한선 설정했으므로 오류
     }
 
@@ -23,7 +23,7 @@ public class Generic {
     }
 
 //    WildCard 의 extends -> 상한선 설정(매개변수로 ?의 서브 타입만 올 수 있음)
-    static void printWild(Collection<? extends MyParent> c){
+    void printWild(Collection<? extends MyParent> c){
 //        c.stream().forEach(MyChild::printInfo); --> ? 는 현재 MyParent 를 상속 받았으므로 그 서브타입까지 알 수 없음!
         c.stream().forEach(e -> {
             System.out.println("Wild Card Class: "+e.getClass());
