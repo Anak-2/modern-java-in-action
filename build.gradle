@@ -31,7 +31,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
-jmh{
+jmh {
     fork = 1
     warmupIterations = 1
     iterations = 1

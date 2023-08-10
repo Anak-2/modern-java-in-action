@@ -35,4 +35,13 @@ public class ParallelStream {
 
         System.out.println("difference between func1 and func2: "+(finish1 - finish2)+"ms");
     }
+
+    public static void getSumPerformance(Function<Long, Long> func, long input){
+        long start = System.currentTimeMillis();
+        long result = func.apply(input);
+        long finish = System.currentTimeMillis() - start;
+
+        System.out.println("Function is Finished At "+finish+"ms");
+        System.out.println("Result is "+result);
+    }
 }
